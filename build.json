@@ -1,0 +1,17 @@
+{
+	"id": "visitory_country",
+	"version": "1.0",
+	"description": "Visitor Country",
+	"categories": [
+		"visitor",
+		"statistics"
+	],
+	"compatible_from": "2017.3.15",
+	"admin_permission": "visitory_country",
+	"custom_acl": [
+		"visitory_country"
+	],
+	"dependencies": [
+		"geoPlugin"
+	]
+}
