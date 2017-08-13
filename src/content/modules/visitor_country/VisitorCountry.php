@@ -23,6 +23,21 @@ class VisitorCountry extends Controller
         setcookie("visitor_country", "1", time() + (60 * 60 * 24 * 5));
     }
 
+    public function getSettingsHeadline()
+    {
+        return get_translation("visitor_countries");
+    }
+
+    public function getSettingsLinkText()
+    {
+        return get_translation("show");
+    }
+
+    public function settings()
+    {
+        return Template::executeModuleTemplate($this->moduleName, "list.php");
+    }
+
     protected function createCountry($name)
     {
         Database::pQuery("INSERT INTO {prefix}visitor_countries
