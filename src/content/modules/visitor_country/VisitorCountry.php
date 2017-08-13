@@ -17,6 +17,7 @@ class VisitorCountry extends Controller
         $data = $controller->getGeoLocation();
         $country = $data["geoplugin_countryName"];
         if (StringHelper::isNotNullOrWhitespace($country)) {
+            if (is_null($this->getCountryValue($country))) {
                 $this->createCountry($country);
             }
             $this->countryPlus1($country);
