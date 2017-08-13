@@ -14,7 +14,7 @@ $data = $controller->getAllCountries();
 		<?php foreach($data as $dataset){?>
 		<tr>
 			<td><?php Template::escape($dataset->name);?></td>
-			<td class="text-right"><?php $dataset->value?></td>
+			<td class="text-right"><?php echo $dataset->value?></td>
 		</tr>
 		<?php }?>
 	</tbody>

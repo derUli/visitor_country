@@ -30,7 +30,13 @@ class VisitorCountry extends Controller
 
     public function getSettingsLinkText()
     {
-        return get_translation("show");
+        return get_translation("view");
+    }
+
+    public function uninstall()
+    {
+        $migrator = new DBMigrator("module/visitor_country", ModuleHelper::buildModuleRessourcePath("visitor_country", "sql/down"));
+        $migrator->rollback();
     }
 
     public function settings()
