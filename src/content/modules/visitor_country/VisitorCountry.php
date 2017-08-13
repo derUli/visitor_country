@@ -42,7 +42,7 @@ class VisitorCountry extends Controller
         return $result->value;
     }
 
-    public function geAllCountries($order = "name")
+    public function getAllCountries($order = "name")
     {
         $sql = "select * from {prefix}visitor_countries order by $order";
         $query = Database::query($sql, true);
