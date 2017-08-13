@@ -1,0 +1,1 @@
+ drop table `{prefix}visitor_countries`;

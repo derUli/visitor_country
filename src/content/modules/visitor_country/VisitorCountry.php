@@ -11,12 +11,16 @@ class VisitorCountry extends Controller
         if (! $controller) {
             return;
         }
+        if (isset($_COOKIE["visitor_country"])) {
+            return;
+        }
         $data = $controller->getGeoLocation();
         $country = $data["geoplugin_countryName"];
         if (is_null($this->getCountryValue($val))) {
             $this->createCountry($country);
         }
         $this->countryPlus1($country);
+        setcookie("visitor_country", "1", time() + (60 * 60 * 24 * 5));
     }
 
     protected function createCountry($name)
