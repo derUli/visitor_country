@@ -16,11 +16,12 @@ class VisitorCountry extends Controller
         }
         $data = $controller->getGeoLocation();
         $country = $data["geoplugin_countryName"];
-        if (is_null($this->getCountryValue($val))) {
-            $this->createCountry($country);
+        if (StringHelper::isNotNullOrWhitespace($country)) {
+                $this->createCountry($country);
+            }
+            $this->countryPlus1($country);
+            setcookie("visitor_country", "1", time() + (60 * 60 * 24 * 5));
         }
-        $this->countryPlus1($country);
-        setcookie("visitor_country", "1", time() + (60 * 60 * 24 * 5));
     }
 
     public function getSettingsHeadline()
