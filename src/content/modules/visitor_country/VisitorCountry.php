@@ -15,13 +15,15 @@ class VisitorCountry extends Controller
             return;
         }
         $data = $controller->getGeoLocation();
-        $country = $data["geoplugin_countryName"];
-        if (StringHelper::isNotNullOrWhitespace($country)) {
-            if (is_null($this->getCountryValue($country))) {
-                $this->createCountry($country);
+        if ($data) {
+            $country = $data["geoplugin_countryName"];
+            if (StringHelper::isNotNullOrWhitespace($country)) {
+                if (is_null($this->getCountryValue($country))) {
+                    $this->createCountry($country);
+                }
+                $this->countryPlus1($country);
+                setcookie("visitor_country", "1", time() + (60 * 60 * 24 * 5));
             }
-            $this->countryPlus1($country);
-            setcookie("visitor_country", "1", time() + (60 * 60 * 24 * 5));
         }
     }
 
