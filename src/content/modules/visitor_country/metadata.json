@@ -5,5 +5,7 @@
 	"controllers": {
 		"VisitorCountry": "VisitorCountry.php"
 	},
-	"main_class": "VisitorCountry"
+	"main_class": "VisitorCountry",
+	"custom_acl" : ["visitor_country"],
+	"admin_permission" : "visitor_country"
 }
