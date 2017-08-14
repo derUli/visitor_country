@@ -14,6 +14,9 @@ class VisitorCountry extends Controller
         if (isset($_COOKIE["visitor_country"])) {
             return;
         }
+        if(is_crawler()){
+            return;
+        }
         $data = $controller->getGeoLocation();
         if ($data) {
             $country = $data["geoplugin_countryName"];
