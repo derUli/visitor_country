@@ -12,6 +12,7 @@
 		"visitory_country"
 	],
 	"dependencies": [
-		"geoPlugin"
+		"geoPlugin",
+		"CrawlerDetect"
 	]
 }
