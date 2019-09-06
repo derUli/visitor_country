@@ -60,7 +60,7 @@ class VisitorCountry extends Controller
         ), true);
     }
 
-    protected function getCountryValue($val)
+    protected function getCountryValue($name)
     {
         $sql = "select value from {prefix}visitor_countries where name = ?";
         $args = array(
@@ -87,7 +87,7 @@ class VisitorCountry extends Controller
 
     protected function countryPlus1($name)
     {
-        $sql = "Update {prefix}visitor_countries set value = value + 1 where name = ?";
+        $sql = "update {prefix}visitor_countries set value = value + 1 where name = ?";
         $args = array(
             strval($name)
         );
